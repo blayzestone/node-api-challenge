@@ -32,6 +32,6 @@ router.patch("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
   db.remove(Number(id))
-    .then((result) => res.status(201).json(result))
+    .then((result) => res.status(204).json(result))
     .catch((err) => console.log(err));
 });
