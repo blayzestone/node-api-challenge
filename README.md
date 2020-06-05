@@ -40,13 +40,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+     Most express code, including route handlers are midddleware functions. Express is compatible with connect middleware (a middleware layer for node js).
+
 - [ ] Describe Middleware?
+
+    Middleware are functions that extend the functionality of the software. Middleware gets executed in the order they are introduced in the code.
 
 - [ ] Describe a Resource?
 
+    in RESTFUL api design, a resource is any data accessed by a url you provide. 
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+    2xx Status code
+
 - [ ] How can we partition our application into sub-applications?
+
+    
 
 ## Minimum Viable Product
 
