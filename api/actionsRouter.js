@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const db = require("../data/helpers/actionModel");
+const { validateProjectId } = require("../middleware");
 
 module.exports = router;
 
@@ -9,14 +10,12 @@ router.get("/:id", (req, res) => {
     .then((action) => res.status(200).json(action));
 });
 
-router.post("/:id", (req, res) => {
+router.post("/:id", validateProjectId, (req, res) => {
   const { id } = req.params;
   const action = {
     ...req.body,
     project_id: Number(id),
   }
-
-  console.log(action);
 
   db.insert(action)
     .then((action) => res.status(201).json(action))
