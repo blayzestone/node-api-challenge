@@ -16,6 +16,13 @@ router.get("/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+router.get("/:id/actions", (req, res) => {
+  const { id } = req.params;
+  projectDb.getProjectActions(Number(id))
+    .then((actions) => res.status(200).json(actions))
+    .catch((err) => console.log(err));
+});
+
 router.post("/", (req, res) => {
   projectDb.insert(req.body)
     .then((project) => res.status(201).json(project))
