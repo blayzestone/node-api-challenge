@@ -15,3 +15,16 @@ router.get("/:id", (req, res) => {
     .then((projects) => res.status(200).json(projects))
     .catch((err) => console.log(err));
 });
+
+router.post("/", (req, res) => {
+  projectDb.insert(req.body)
+    .then((project) => res.status(201).json(project))
+    .catch((err) => console.log(err));
+});
+
+router.patch("/:id", (req, res) => {
+  const { id } = req.params;
+  projectDb.update(Number(id), req.body)
+    .then((project) => res.status(200).json(project))
+    .catch((err) => console.log(err));
+});
