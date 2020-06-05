@@ -16,3 +16,17 @@ router.post("/:id", (req, res) => {
     .then((action) => res.status(201).json(action))
     .catch((err) => console.log(err));
 });
+
+router.patch("/:id", (req, res) => {
+  const { id } = req.params;
+  db.update(Number(id), req.body)
+    .then((updatedAction) => res.status(201).json(updatedAction))
+    .catch((err) => console.log(err));
+});
+
+router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+  db.remove(Number(id))
+    .then((result) => res.status(201).json(result))
+    .catch((err) => console.log(err));
+});
