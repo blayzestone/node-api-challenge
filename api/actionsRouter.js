@@ -3,6 +3,12 @@ const db = require("../data/helpers/actionModel");
 
 module.exports = router;
 
+router.get("/:id", (req, res) => {
+  const { id } = req.params;
+  db.get(Number(id))
+    .then((action) => res.status(200).json(action));
+});
+
 router.post("/:id", (req, res) => {
   const { id } = req.params;
   const action = {
