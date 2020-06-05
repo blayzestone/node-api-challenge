@@ -28,3 +28,9 @@ router.patch("/:id", (req, res) => {
     .then((project) => res.status(200).json(project))
     .catch((err) => console.log(err));
 });
+
+router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+  projectDb.remove(Number(id))
+    .then((result) => res.status(201).json(result));
+});
